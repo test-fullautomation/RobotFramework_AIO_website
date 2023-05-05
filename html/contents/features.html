@@ -1,0 +1,116 @@
+<h2 class="mt-5">Features</h2>
+<hr>
+<div id="features-content">
+  <!-- <p>Lists of RobotFramework AIO's features</p>
+  <ul>
+    <li>All required packages and libraries in one installer file</li>
+    <li>Packaged Python 3.9 with required dependencies and helpful packages</li>
+    <li>Packaged Robotframework with extended libraries</li>
+    <li>VScodium IDE with required extensions</li>
+    <li>Variants and json configuration files with <strong>RobotFramework_TestsuitesManagement</strong></li>
+    <li>Mechanism to handle trace log continously receiving from a connections with <strong>QConnectBase</strong></li>
+    <li>Import tools to process the Robotframework/PyTest results</li>
+    <li>Testresult Webapp infrastructure</li>
+    <li>...</li>
+  </ul> -->
+
+  <!-- AIO package -->
+  <div class="row">
+    <div class="col-lg-7">
+      <p>An All-In-One package which contains all required packages, tools and libraries in one installer file</p>
+      <ul>
+        <li><a href="https://www.python.org">Python Interpreter</a> - version <strong>3.9</strong></li>
+        <li><a href="https://robotframework.org">Robot Framework</a> - version <strong>4.1.3</strong> <em style="color:red">(will be upgraded to version 6 in next release)</em></li>
+        <li><a href="https://vscodium.com">VSCodium Editor</a> with pre-installed helpful extensions and pre-configured workspace</li>
+        <li>Additional Python and Robot Framework libraries</li>
+      </ul>
+    </div>
+    <div class="col-lg-5">
+      <img src="./images/AIO_package.png" width="100%"></img>
+    </div>
+  </div>
+
+  <!-- VSCodium features -->
+  <div class="row mt-2">
+    <div class="col-lg-7 order-2 order-lg-1">
+      <img src="./images/VSCodium-workspace.png" class="zoom-img" width="100%"></img>
+    </div>
+    <div class="col-lg-5 order-1 order-lg-2">
+      <p><strong>VSCodium Editor</strong> with pre-installed extensions, pre-configured workspace and the tutorial Robot test folder</p>
+      <ul>
+        <li>Pre-installed <a href="https://open-vsx.org/extension/ms-python/python" target="_blank">Python</a>, 
+          <a href="https://open-vsx.org/extension/robocorp/robotframework-lsp" target="_blank">Robot Framework Language Server</a> 
+          and other useful extensions</li>
+        <li>Pre-configured workspace and extensions so that you just click <strong>Run/Debug</strong> button to execute Robot testcase(s)</li>
+        <li>The <strong>tutorial</strong> test folder for you to practice with Robot Framework</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Testsuites Management -->
+  <div class="row mt-2">
+    <div class="col-lg-7">
+      <p>
+        <a href="https://github.com/test-fullautomation/robotframework-testsuitesmanagement" target="_blank">
+          RobotFramework_TestsuitesManagement
+        </a> library which enables you to define dynamic configuration for variants and values in JSON format
+      </p>
+      <ul>
+        <li>Testsuire configuration as JSON format</li>
+        <li>Version control</li>
+        <li>Variant switch</li>
+        <li>Local configuration</li>
+      </ul>
+    </div>
+    <div class="col-lg-5">Image/diagram about this feature</div>
+  </div>
+
+  <!-- QConnectBase -->
+  <div class="row mt-2">
+    <div class="col-lg-7">Image/diagram about this feature</div>
+    <div class="col-lg-5">
+      <p>
+        <a href="https://github.com/test-fullautomation/robotframework-qconnect-base" target="_blank">
+          QConnectBase
+        </a> library provides a mechanism to handle trace log continously receiving from various connection types</p>
+      <ul>
+        <li>TCP/IP</li>
+        <li>SSH</li>
+        <li>Serial</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Import Tools -->
+  <div class="row mt-2">
+    <div class="col-lg-7">
+      <p>
+        RobotFramework AIO package provides the solution to import the 
+        <a href="https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#output-file" target="_blank">Robot Framework result file(s)</a> (<strong><em>output.xml</em></strong>), 
+        <a href="https://docs.pytest.org/en/7.2.x/how-to/output.html#creating-junitxml-format-files" target="_blank">PyTest result file(s)</a> (as <strong><em>JUnitXML</em></strong> format) to the Test Management applications:
+      </p>
+      <ol>
+        <li><a href="https://www.ibm.com/docs/en/elm/7.0.2?topic=capabilities-etm" target="_blank">IBM Engineering Test Management</a>:
+          (from version <em>7.0.0</em>) which is as know as 
+          <a href="https://www.ibm.com/docs/en/elm/6.0.5?topic=capabilities-rational-quality-manager" target="_blank">Rational Quality Manager - RQM</a>
+          (for the older versions).
+          <ul>
+            <li><a href="https://github.com/test-fullautomation/robotframework-robotlog2rqm" target="_blank">RobotLog2RQM tool</a></li>
+          </ul>
+        </li>
+        <li><a href="https://github.com/test-fullautomation/testresultwebapp" target="_blank">TestResultWebApp</a>:
+          A web application for managing test execution results systematically and processing, displaying of test result data in a sophisticated way.
+          <ul>
+            <li><a href="https://github.com/test-fullautomation/robotframework-robotlog2db" target="_blank">RobotLog2DB tool</a></li>
+            <li><a href="https://github.com/test-fullautomation/python-pytestlog2db" target="_blank">PyTestLog2DB tool</a></li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+    <div class="col-lg-5">
+      <div class="row">
+        <img class="zoom-img" src="./images/Dashboard.png" width="100%" alt="TestResultWebApp">
+      </div>
+    </div>
+  </div>
+</div>
