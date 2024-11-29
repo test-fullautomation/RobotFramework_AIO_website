@@ -12,15 +12,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      with:
-         fetch-depth: 0
 
     - name: Upload files via SFTP
-      uses: milanmk/actions-file-deployer@master
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
       with:
-        remote-protocol: "sftp"
-        remote-host: "ssh.strato.de"
-        remote-user: "upload@robotframework-aio.org"
-        remote-password: ${{ secrets.SFTP_PASSWORD }}
-        remote-path: "/"
-        sync: "full"
+         username: upload@robotframework-aio.org
+         server: ssh.strato.de
+         port: 22
+         local_path: './*'
+         remote_path: '/'
+         sftp_only: true
+         password: ${{ secrets.SFTP_PASSWORD }}
