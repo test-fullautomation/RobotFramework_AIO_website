@@ -20,5 +20,5 @@ jobs:
         username: ${{ secrets.SFTP_USERNAME }}
         password: ${{ secrets.SFTP_PASSWORD }}
         port: 22
-        source: "/*"
+        source: "*"
         target: "/"
