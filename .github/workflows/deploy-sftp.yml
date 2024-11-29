@@ -11,14 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+      with:
+         fetch-depth: 0
 
     - name: Upload files via SFTP
-      uses: appleboy/scp-action@v0.1.7
+      uses: milanmk/actions-file-deployer@master
       with:
-        host: ssh.strato.de
-        username: upload@robotframework-aio.org
-        password: ${{ secrets.SFTP_PASSWORD }}
-        port: 22
-        source: "*"
-        target: "/"
+        remote-protocol: "sftp"
+        remote-host: "ssh.strato.de"
+        remote-user: "upload@robotframework-aio.org"
+        remote-password: ${{ secrets.SFTP_PASSWORD }}
+        remote-path: "/"
+        sync: "full"
