@@ -16,8 +16,8 @@ jobs:
     - name: Upload files via SFTP
       uses: wlixcc/SFTP-Deploy-Action@v1.2.4
       with:
-         username: upload@robotframework-aio.org
-         server: ssh.strato.de
+         username: ${{ secrets.SFTP_USERNAME }}
+         server: ${{ secrets.SFTP_HOST }}
          port: 22
          local_path: './*'
          remote_path: '/'
