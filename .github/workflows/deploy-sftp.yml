@@ -1,0 +1,25 @@
+name: Deploy via SFTP
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Upload files via SFTP
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      with:
+         username: ${{ secrets.SFTP_USERNAME }}
+         server: ${{ secrets.SFTP_HOST }}
+         port: 22
+         local_path: './*'
+         remote_path: '/'
+         sftp_only: true
+         password: ${{ secrets.SFTP_PASSWORD }}
