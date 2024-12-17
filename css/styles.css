@@ -2,6 +2,7 @@
    height: 32px;
    margin-top: -6px;
 }
+
 .nav-header{
   background-color: rgb(40 10 100);
 }
@@ -16,6 +17,39 @@
 
 input {
   min-width: 100px;
+}
+
+.contribution-item {
+  background-color: rgb(45, 66, 9);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar {
+  padding-top: 3px;
+  padding-bottom: 0;
+}
+
+.nav-item .nav-link {
+  position: relative;
+  color: #333; /* Ausgangsfarbe */
+  transition: color 0.2s ease-in-out; /* Sanfte Farbänderung */
+}
+
+.nav-item .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%; /* Startpunkt in der Mitte */
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  background-color: rgb(77, 112, 16); /* Farbe des Unterstrichs */
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out; /* Animation */
+}
+
+.nav-item .nav-link:hover::after {
+  width: 100%; /* Breite auf 100% wachsen lassen */
+  left: 0; /* Von der Mitte nach außen animieren */
 }
 
 /* for zooming images on larged screen*/
@@ -144,36 +178,51 @@ body::before {
   visibility: hidden;
 }
 
-.contribution-item {
-  background-color: rgb(45, 66, 9);
-  padding-top: 0;
-  padding-bottom: 0;
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-.navbar {
-  padding-top: 3px;
-  padding-bottom: 0;
+.modern-table th {
+  background-color: #ebebeb;
 }
 
-.nav-item .nav-link {
-  position: relative;
-  color: #333; /* Ausgangsfarbe */
-  transition: color 0.2s ease-in-out; /* Sanfte Farbänderung */
+.modern-table thead {
+  background-color: #f4f4f4;
+  border-bottom: 2px solid #ddd;
 }
 
-.nav-item .nav-link::after {
-  content: "";
-  position: absolute;
-  left: 50%; /* Startpunkt in der Mitte */
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background-color: rgb(77, 112, 16); /* Farbe des Unterstrichs */
-  transition: width 0.3s ease-in-out, left 0.3s ease-in-out; /* Animation */
+.modern-table th, 
+.modern-table td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
 }
 
-.nav-item .nav-link:hover::after {
-  width: 100%; /* Breite auf 100% wachsen lassen */
-  left: 0; /* Von der Mitte nach außen animieren */
+.modern-table tbody tr {
+  border-bottom: 1px solid #ddd;
+  background-color: #cff1d6;
+}
+
+.modern-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.modern-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Spezifisches Styling für Links innerhalb der Tabelle */
+.modern-table a {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.modern-table a:hover {
+  text-decoration: underline;
 }
 
