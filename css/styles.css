@@ -205,7 +205,6 @@ body::before {
 
 .modern-table tbody tr {
   border-bottom: 1px solid #ddd;
-  background-color: #cff1d6;
 }
 
 .modern-table tbody tr:last-child {
@@ -225,4 +224,21 @@ body::before {
 .modern-table a:hover {
   text-decoration: underline;
 }
+
+.modern-table .extended {
+  background-color: #d7ffcd;
+  vertical-align: top;
+  transition: background-color 0.3s ease; /* Glatter Übergang */
+}
+
+.modern-table .original {
+  background-color: #dfe5ff;
+  vertical-align: top;
+  transition: background-color 0.3s ease; /* Glatter Übergang */
+}
+
+.modern-table tr:hover td {
+  background-color: #f8fcff; /* 10% hellere Farbe */
+}
+
 

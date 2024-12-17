@@ -34,6 +34,9 @@ function addListeners(){
       images[i].addEventListener('click', zoomImage);
    }
 
+   //do syntax highlighting für new loaded documents
+   Prism.highlightAll();
+
    // Download button events
    // document.getElementById('download-windows').addEventListener('click', function(){
    //    downloadInstaller("windows")
