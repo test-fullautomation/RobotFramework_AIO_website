@@ -9,19 +9,39 @@
       <p>An All-In-One package which contains all required packages, tools and libraries in one installer file:</p>
       <ul>
         <li><a href="https://www.python.org" target="_blank">Python Interpreter</a> - version <strong>3.9</strong></li>
-        <li><a href="https://robotframework.org" target="_blank">Robot Framework core</a> - <strong>branch of version 6.02 with extensions</strong> (<a href="#label_extensions">details below</a>)</li>
+        <li>
+          <a href="https://robotframework.org" target="_blank">Robot Framework core</a> comes in two versions:
+          
+          <table class="modern-table">
+            <tr>
+              <th style="width:20%; vertical-align: top;">Name</th>
+              <th style="width:30%; vertical-align: top;">Status</th>
+              <th style="width:50%; vertical-align: top;">Additional Info</th>
+            </tr>
+            <tr>
+              <td class="extended">extended</td>
+              <td class="extended">fork of version 6.02</td>
+              <td class="extended">extended version (<a href="#label_extensions">details below</a>)</td>
+            </tr>
+            <tr>
+              <td class="original">original</td>
+              <td class="original">7.1</td>
+              <td class="original">original version</td>
+            </tr>
+          </table>
+        </li>
         <li><a href="https://vscodium.com" target="_blank">VSCodium Editor</a> with pre-installed helpful extensions and pre-configured workspace (<a href="#label_vscodium">details below</a>)</li>
         <li>Additional Python and Robot Framework libraries <br>
             - <a href="https://html-preview.github.io/?url=https://github.com/test-fullautomation/robotframework-documentation/blob/develop/RobotFrameworkAIO/Components.html" target="_blank">maintained by RobotFramework AIO team</a><br>
-            - <a href="https://github.com/test-fullautomation/robotframework-documentation/blob/develop/RobotFrameworkAIO/RobotFrameworkAIO_Reference.pdf" target="_blank">general testing related OSS libraries (last page)</a> e.g. 
+            - <a href="https://robotframework-aio.org/download/RobotFrameworkAIO_Reference_extended.pdf" target="_blank">general testing related OSS libraries (last page)</a> e.g. 
           <a href="https://pypi.org/project/Appium-Python-Client/" target="_blank">Appium-Python-Client</a> and <a href="https://appium.io/docs/en/latest/" target="_blank">Appium</a>, 
           <a href="https://pypi.org/project/matplotlib/" target="_blank">matplotlib</a>,  
           <a href="https://pypi.org/project/scipy/" target="_blank">scipy</a>, ...
         </li>   
       </ul>
     </div>
-    <div class="col-lg-5 d-flex justify-content-center">
-      <img src="./images/AIO_package.png" width="90%"></img>
+    <div class="col-lg-5 d-flex justify-content-center align-items-center">
+      <img src="./images/AIO_package.png" style="max-width: 90%; height: auto;"></img>
     </div>
   </div>
 
@@ -33,15 +53,15 @@
         community version, enabling everyone to benefit from a better Robot Framework core:
       </p>
       <ul>
-        <li><a href="https://github.com/test-fullautomation/robotframework-documentation/blob/develop/RobotFrameworkAIO/RobotFrameworkAIO_Reference.pdf" target="_blank">Threading (page 13, chapter 7)</a><br>
-        This feature is currently in stabilization</li>
-        <li><a href="https://github.com/test-fullautomation/robotframework-documentation/blob/develop/RobotFrameworkAIO/RobotFrameworkAIO_Reference.pdf" target="_blank">Loglevel "USER" (page 12, chapter 6)</a><br>
-        This feature is stable and we created already a <a href="https://github.com/robotframework/robotframework/pull/5084">pull-request</a> for the Robot Framework core</li>
+        <li><a href="https://robotframework-aio.org/download/RobotFrameworkAIO_Reference_extended.pdf" target="_blank">Threading (page 13, chapter 7)</a><br>
+        This feature is in stabilization. A discussion how to implement for the community version you find <a href="https://github.com/robotframework/robotframework/issues/5294">here</a>.</li></li>
+        <li><a href="https://robotframework-aio.org/download/RobotFrameworkAIO_Reference_extended.pdf" target="_blank">Loglevel "USER" (page 12, chapter 6)</a><br>
+        This feature is in stabilization, too. A discussion how to implement for the community version you find <a href="https://github.com/robotframework/robotframework/pull/5084">here</a>.</li>
       </ul>
     </div>
-    <div class="col-lg-5 d-flex justify-content-center">
-      <img src="./images/puzzle.png" style="margin-top: 4vh;" height="70%"></img>
-    </div>
+    <div class="col-lg-5 d-flex justify-content-center align-items-center">
+      <img src="./images/puzzle.png" style="max-width: 50%; height: auto;"></img>
+    </div>    
   </div>
 
 
@@ -53,10 +73,10 @@
       <p>VSCodium Editor with pre-installed extensions, pre-configured workspace and the tutorial folder:</p>
       <ul>
         <li>Pre-installed <a href="https://open-vsx.org/extension/ms-python/python" target="_blank">Python</a>, 
-          <a href="https://open-vsx.org/extension/robocorp/robotframework-lsp" target="_blank">Robot Framework Language Server</a> 
+          <a href="https://robotcode.io/" target="_blank">RobotCode</a> plugin 
           and other useful extensions</li>
         <li>Pre-configured workspace and extensions so that you just click <strong>Run/Debug</strong> button to execute Robot testcase(s)</li>
-        <li>Hello World example for immediate execution </li>
+        <li>"Hello World" example for immediate execution </li>
         <li>The <strong>tutorial</strong> test folder for you to practice with Robot Framework</li>
       </ul>
     </div>
@@ -71,8 +91,9 @@
       <p>
         <strong><a href="https://pypi.org/project/robotframework-testsuitesmanagement/" target="_blank">
           RobotFramework_TestsuitesManagement
-        </a></strong> <p>RobotFramework AIO offers scalable management of an unlimited number of projects and variants through <a href="https://pypi.org/project/JsonPreprocessor/" target="_blank">JSONP</a>. JSONP is an extended 
-                version of <a href="https://www.json.org/json-en.html" target="_blank">JSON</a> that allows for comments, imports, and variables at the JSON level, making it incredibly flexible and powerful for managing your test suites:</p>
+        </a></strong>     
+        <p>RobotFramework AIO provides scalable management for an unlimited number of projects and variants using <a href="https://pypi.org/project/JsonPreprocessor/" target="_blank">JSONP</a>. JSONP, an enhanced version of <a href="https://www.json.org/json-en.html" target="_blank">JSON</a>,
+           enables comments, imports, and variables directly at the JSON level. This added flexibility makes it a powerful tool for efficiently managing your test suites.</p>
       </p>
       <ul class="feature-list">
         <li><strong>Scalable Management:</strong> Easily manage numerous projects and variants</li>
@@ -80,9 +101,9 @@
         <li><strong>Flexible Configuration:</strong> Adapt and configure your test suites effortlessly</li>
     </ul>
     </div>
-    <div class="col-lg-5 d-flex justify-content-center">
-      <img src="./images/tsm.png" style="margin-top: 4vh;" height="70%"></img>
-    </div>
+    <div class="col-lg-5 d-flex justify-content-center align-items-center">
+      <img src="./images/tsm.png" style="max-width: 60%; height: auto;"></img>
+    </div>      
   </div>
 
 
@@ -93,27 +114,29 @@
     <div class="col-lg-7">
       <p><strong>TestResult WebApp</strong></p>
       <p>
-        RobotFramework AIO package provides the solution to import the 
+        RobotFramework AIO provides the solution to import the 
         <a href="https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#output-file" target="_blank">Robot Framework result file(s)</a> (<strong><em>output.xml</em></strong>), 
-        <a href="https://docs.pytest.org/en/7.2.x/how-to/output.html#creating-junitxml-format-files" target="_blank">PyTest result file(s)</a> (as <strong><em>JUnitXML</em></strong> format) to the Test Management applications:
+        <a href="https://docs.pytest.org/en/7.2.x/how-to/output.html#creating-junitxml-format-files" target="_blank">PyTest result file(s)</a> (as <strong><em>JUnitXML</em></strong> format) to different Test Management applications:
       </p>
-      <ol>
+      <ul>
         <li><a href="https://www.ibm.com/docs/en/elm/7.0.2?topic=capabilities-etm" target="_blank">IBM Engineering Test Management</a>:
           (from version <em>7.0.0</em>) which is as know as 
-          <a href="https://www.ibm.com/docs/en/elm/6.0.5?topic=capabilities-rational-quality-manager" target="_blank">Rational Quality Manager - RQM</a>
+          <a href="https://www.ibm.com/docs/en/rpt/8.7.1?topic=overview-rational-quality-manager" target="_blank">Rational Quality Manager - RQM</a>
           (for the older versions).
           <ul>
             <li><a href="https://pypi.org/project/robotframework-robotlog2rqm/" target="_blank">RobotLog2RQM tool</a></li>
           </ul>
         </li>
         <li><a href="https://github.com/test-fullautomation/testresultwebapp" target="_blank">TestResultWebApp</a>:
-          A web application for managing test execution results systematically and processing, displaying of test result data in a sophisticated way.
+          The web application allows for sophisticated processing and visualization of test result data. It offers a comprehensive set of features including an intuitive dashboard for tracking test execution metrics, 
+          detailed datatables for reviewing individual test outcomes, and runtime optimization views. The Diff view enables easy comparison of test results across multiple runs, enhancing analysis and decision-making. <br>
+          With flexible filtering, commenting, and collaboration tools, this platform supports effective test result management and comparison, making it an essential tool for teams seeking in-depth insights into their testing process.
           <ul>
             <li><a href="https://pypi.org/project/robotframework-robotlog2db/" target="_blank">RobotLog2DB tool</a></li>
             <li><a href="https://pypi.org/project/PyTestLog2DB/" target="_blank">PyTestLog2DB tool</a></li>
           </ul>
         </li>
-      </ol>
+      </ul>
     </div>
     <div class="col-lg-5">
       <div class="row">
