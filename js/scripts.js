@@ -47,6 +47,28 @@ function addListeners(){
 
 };
 
+document.querySelectorAll('.sidebar-links a').forEach(link => {
+   link.addEventListener('click', function (e) {
+       e.preventDefault(); // Verhindert das Standardverhalten des Links
+
+       const contentUrl = this.getAttribute('data-content'); // Ziel-Datei
+       const contentContainer = document.getElementById('main-content'); // Content-Bereich
+
+       // Inhalt laden
+       fetch(contentUrl)
+           .then(response => {
+               if (!response.ok) throw new Error('Network response was not ok');
+               return response.text();
+           })
+           .then(html => {
+               contentContainer.innerHTML = html; // Content aktualisieren
+           })
+           .catch(error => {
+               contentContainer.innerHTML = `<p>Error loading content: ${error.message}</p>`;
+           });
+   });
+});
+
 // Handlers for searching 
 function searchHandler(event){
    var searchText = document.getElementById("search").value;

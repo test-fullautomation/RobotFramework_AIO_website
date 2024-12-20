@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RobotFramework AIO</title><link rel="icon" type="image/x-icon" href="../../../images/RobotFramework_AIO.ico">
+    <meta charset="UTF-8">
+    <meta name="description" content="RobotFramework AIO website">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Tran Duy Ngoan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B30XL80YSN"></script>
+    <script>
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+
+       gtag('config', 'G-B30XL80YSN');
+    </script>
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top nav-header">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+              <img src="./images/RobotFramework_AIO.ico" alt="Logo" style="width: 30px; margin-right: 10px;">
+              RobotFramework AIO
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="index.html#features">Features</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="documentation.html">Documentation</a>
+                  </li>
+              </ul>
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="contribution.html"><i class="fas fa-thumbs-up"></i> Contribution</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="https://github.com/test-fullautomation"><i class="fab fa-github"></i> Github</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+      <div class="sidebar-header">LIBRARIES</div>
+      <div class="sidebar-links">
+        <a href="#" data-content="contribution.html">qconnect-base</a>
+        <a href="#" data-content="content2.html">qconnect-winapp</a>
+        <a href="#" data-content="content3.html">testsuites-management</a>
+        <a href="#" data-content="content4.html">jsonpreprocessor</a>
+        <a href="#" data-content="content5.html">robotlog2rqm</a>
+        <a href="#" data-content="content6.html">pytestlog2rqm</a>
+    </div>
+    
+  </div>
+
+  <!-- Hauptinhalt -->
+  <div class="content" id="main-content">
+    <h1>Welcome to RobotFramework AIO</h1>
+    <p>Here you can add your main content...</p>
+</div>
+
+    <!-- Footer section -->
+    <footer class="bg-light py-3"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/scripts.js"></script>
+
+    <script>
+      // Eventlistener für das Laden der Seite
+      window.onload = function() {
+          // Aktionen ausführen, wenn die Seite geladen wird
+          generateMailtoLink("em_bt","Email to us");
+      };
+    </script>
+
+  </body>
+
+
+
+</html>

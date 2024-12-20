@@ -65,6 +65,13 @@ input {
   }
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
 body::before {
   content: ""; /* Leerer Inhalt, da nur die Grafik benötigt wird */
   display: block; /* Macht das Pseudoelement sichtbar */
@@ -241,4 +248,65 @@ body::before {
   background-color: #f8fcff; /* 10% hellere Farbe */
 }
 
+
+
+.navbar {
+  /*background-color: #343a40;*/
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: #2d2f33;
+}
+
+.sidebar-header {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg); /* Text korrekt ausrichten */
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #495057; /* Hintergrundfarbe für "LIBRARIES" */
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px; /* Breite für vertikalen Header */
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  padding-top: 50px;
+  flex-grow: 1;
+}
+
+.sidebar-links a {
+  display: block; /* Links sollen als Block-Elemente erscheinen */
+  width: 100%; /* Volle Breite der Sidebar */
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  padding: 10px;
+  text-align: left;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent; /* Für den Hover-Indikator */
+}
+
+.sidebar-links a:hover {
+  background-color: #6c757d; /* Hintergrundfarbe beim Hover */
+  /*border-left: 4px solid  rgb(77, 112, 16);*/
+}
+
+.content {
+  margin-left: 225px; /* Platz für Sidebar */
+  padding: 20px;
+}
 
