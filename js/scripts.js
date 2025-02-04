@@ -5,8 +5,8 @@ $(document).ready(function() {
    $("footer").load("./html/footer.html", function() {
       generateMailtoLink("em_footer","Contact");
    });
-   // Load *.html templates for each section 
-   var HTML_CONTENTS = ["background", "features", "downloads", "usage", 
+   // Load *.html templates for each section
+   var HTML_CONTENTS = ["background", "features", "downloads", "usage",
                          "documentation", "about"];
    var i = 0;
    for (section of HTML_CONTENTS){
@@ -24,6 +24,14 @@ $(document).ready(function() {
 function addListeners(){
    // Highlight the active section in the navigation bar
    $('body').scrollspy({ target: '#navbarNav' });
+
+   // Navigate to target section (if given) in the url
+   if (window.location.hash) {
+      var targetElement = document.querySelector(window.location.hash);
+      if (targetElement) {
+         targetElement.scrollIntoView({ behavior: "auto", block: "start" });
+      }
+   }
 
    // Search button event
    // document.getElementById('search-btn').addEventListener('click', searchHandler);
@@ -47,7 +55,7 @@ function addListeners(){
 
 };
 
-// Handlers for searching 
+// Handlers for searching
 function searchHandler(event){
    var searchText = document.getElementById("search").value;
    event.preventDefault();
@@ -78,21 +86,21 @@ function downloadInstaller(os){
 // Hide email-address
 function decode(encodedString) {
       var charArray = encodedString.split('');
-  
+
       for (let i = 0; i < charArray.length - 1; i += 2) {
           let temp = charArray[i];
           charArray[i] = charArray[i + 1];
           charArray[i + 1] = temp;
       }
-  
+
       var swappedString = charArray.join('');
       var decodedString = atob(swappedString);
-  
+
       return decodedString;
   }
 
 function generateMailtoLink(id,newContent) {
-   var encoded = "GdvhWbzFnLvBGblxncwN2bjV0aiB3bjNCaj52b=0"; 
+   var encoded = "GdvhWbzFnLvBGblxncwN2bjV0aiB3bjNCaj52b=0";
    var email = decode(encoded);
    var mailtoLink = "mailto:" + email;
    if (id === undefined){return}
@@ -104,7 +112,7 @@ function generateMailtoLink(id,newContent) {
       content=newContent;
    }
    document.getElementById(id).textContent = content;
-} 
+}
 
 function encodeEmailAndSwap(email) {
    let base64Encoded = btoa(email);
