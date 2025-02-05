@@ -23,13 +23,68 @@ $(document).ready(function() {
 
 function addListeners(){
    // Highlight the active section in the navigation bar
-   $('body').scrollspy({ target: '#navbarNav' });
+   // $('body').scrollspy({ target: '#navbarNav' });
+   // scrollspy does not highlight properly when section's content is to short
+   // issue when clicking Documentation but About Us is highlighted
+   const sections = document.querySelectorAll("main section");
+   const navLinks = document.querySelectorAll(".navbar-nav a");
+   let isManualScroll = false;
+
+   function removeActiveClasses() {
+      navLinks.forEach(link => link.classList.remove("active"));
+   }
+
+   function highlightCurrentSection() {
+      if (isManualScroll) return;
+      let scrollPosition = window.scrollY + 150;
+
+      sections.forEach((section) => {
+         let sectionTop = section.offsetTop;
+         let sectionHeight = section.offsetHeight;
+
+         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            let sectionId = section.getAttribute("id");
+            removeActiveClasses();
+            document.querySelector(`.navbar-nav a[href="index.html#${sectionId}"]`).classList.add("active");
+         }
+      });
+   }
+
+   window.addEventListener("scroll", highlightCurrentSection);
+
+   navLinks.forEach((link) => {
+      link.addEventListener("click", function (event) {
+      //   event.preventDefault();
+      isManualScroll = true;
+         let targetId = this.getAttribute("href").substring(1);
+         let targetSection = document.getElementById(targetId);
+
+         if (targetSection) {
+            window.scrollTo({
+               top: targetSection.offsetTop,
+               behavior: "smooth",
+            });
+         }
+
+         removeActiveClasses();
+         this.classList.add("active");
+         setTimeout(() => {
+            isManualScroll = false; //reset this value for scrolling event
+         }, 700)
+      });
+   });
 
    // Navigate to target section (if given) in the url
    if (window.location.hash) {
       var targetElement = document.querySelector(window.location.hash);
       if (targetElement) {
+         isManualScroll = true;
          targetElement.scrollIntoView({ behavior: "auto", block: "start" });
+         // removeActiveClasses();
+         document.querySelector(`.navbar-nav a[href="index.html${window.location.hash}"]`).classList.add("active");
+         setTimeout(() => {
+            isManualScroll = false; //reset this value for scrolling event
+         }, 700)
       }
    }
 
@@ -44,6 +99,8 @@ function addListeners(){
 
    //do syntax highlighting für new loaded documents
    Prism.highlightAll();
+
+   highlightCurrentSection();
 
    // Download button events
    // document.getElementById('download-windows').addEventListener('click', function(){
