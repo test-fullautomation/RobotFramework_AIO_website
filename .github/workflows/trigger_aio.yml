@@ -1,4 +1,6 @@
 name: Trigger RobotFramework AIO
+permissions:
+  contents: read
 
 on:
   pull_request:
@@ -66,7 +68,7 @@ jobs:
             echo "Pipeline RobotFramework AIO success."
             echo "Details at link: $PIPELINE_LINK"
           else
-            echo "Pipeline RobotFramework AIO is not succeed."
+            echo "Pipeline RobotFramework AIO did not succeed."
             echo "Details at link: $PIPELINE_LINK"
             # Notify fail build AIO pipeline
             exit 1
