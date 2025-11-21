@@ -24,7 +24,7 @@ jobs:
           curl -X POST https://api.github.com/repos/test-fullautomation/RobotFramework_AIO/dispatches \
           --header 'authorization: Bearer ${{ secrets.PAT_GITHUB }}' \
           -H 'Accept: application/vnd.github.everest-preview+json' \
-          --data '{"event_type": "TRIGGER_AIO", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'", "branch": "'"$PULL_REQUEST_BRANCH"'" }}'
+          --data '{"event_type": "TRIGGER_AIO", "client_payload": { "repository": "'"robotframework-aio-website"'", "branch": "'"$PULL_REQUEST_BRANCH"'" }}'
 
   status-build-aio:
     runs-on: ubuntu-latest
