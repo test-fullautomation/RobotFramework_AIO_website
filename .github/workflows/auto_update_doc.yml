@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+        with:
+          ref: mar3hc/auto-trigger-pr
 
       - name: Ensure doc branch exists and has changes
         run: |
