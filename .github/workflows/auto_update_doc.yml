@@ -22,18 +22,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Ensure doc branch exists and has changes
-        run: |
-          doc_branch=automation/task/update-rfw-libdoc-documents-extended
-          git fetch origin $doc_branch || git checkout -b $doc_branch
-          git checkout $doc_branch
-          # Make sure there are changes
-          if [ "$(git rev-list develop..$doc_branch)" == "" ]; then
-            echo "No changes between develop and $doc_branch. Skipping PR creation."
-            exit 0
-          fi
-          git push origin $doc_branch
-
       - name: Create pull request
         run: |
           doc_branch=automation/task/update-rfw-libdoc-documents-extended
