@@ -24,7 +24,7 @@ jobs:
 
       - name: Ensure doc branch exists and has changes
         run: |
-          doc_branch=automation/task/update-rfw-libdoc-documents
+          doc_branch=automation/task/update-rfw-libdoc-documents-extended
           git fetch origin $doc_branch || git checkout -b $doc_branch
           git checkout $doc_branch
           # Make sure there are changes
@@ -36,7 +36,7 @@ jobs:
 
       - name: Create pull request
         run: |
-          doc_branch=automation/task/update-rfw-libdoc-documents
+          doc_branch=automation/task/update-rfw-libdoc-documents-extended
 
           echo "Create pull request to merge documents"
           pr_exists=$(gh pr list --state open | grep -qw "Updating generated libdoc documents" && echo "found" || echo "not found")
