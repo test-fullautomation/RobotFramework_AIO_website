@@ -1,6 +1,51 @@
-<h2 class="mt-5">Documentation</h2>
+<h2 class="mt-5" style="font-size: 2.5rem">Documentation</h2>
 <hr>
-<div id="document-content">
-<p>Here, you will find the comprehensive documentation for RobotFramework AIO. <br>After installation, this documentation will also be accessible within your VSCodium workspace:</p>
-<a target="_blank" href="https://robotframework-aio.org/download/RobotFrameworkAIO_Reference_extended.pdf">RobotFramework AIO (extended) Reference Documentation</a>
+<div id="document-content" style="font-size: 1.2rem; color: #333;">
+   <p>Here, you will find the comprehensive documentation for RobotFramework AIO. <br>After installation, this
+      documentation will also be accessible within your VSCodium workspace:</p>
+
+   <a target="_blank"
+      href="https://robotframework-aio.org/download/RobotFrameworkAIO_Reference_extended.pdf"
+      class="btn" style="margin-top: 10px;"><i class="fas fa-book"></i> View Extended Reference Documentation</a>
 </div>
+
+<!-- New Section for Libdoc -->
+<section id="libdoc-section" class="mt-5">
+   <h3 style="font-size: 2rem">Keywords</h3>
+   <hr>
+   <div class="libdoc-container">
+      <div class="libdoc-card">
+         <h4><i class="fas fa-car"></i> RobotFramework UDS</h4>
+         <p>Keywords for sending UDS (Unified Diagnostic Services) requests and interpreting response.</p>
+         <a href="html/libdoc/UDSKeywords.html" target="_blank" class="btn btn-primary"><i class="fas fa-book"></i> View Libdoc</a>
+      </div>
+      <div class="libdoc-card">
+         <h4><i class="fas fa-network-wired"></i> RobotFramework DoIP</h4>
+         <p>Keywords for interacting with vehicle ECUs via the Diagnostics over Internet Protocol (DoIP), enabling
+            automated testing and diagnostics.</p>
+         <a href="html/libdoc/DoipKeywords.html" target="_blank" class="btn btn-primary"><i class="fas fa-book"></i> View Libdoc</a>
+      </div>
+      <div class="libdoc-card">
+         <h4><i class="fas fa-tools"></i> RobotFramework Extensions Collection</h4>
+         <p>Extends Robot Framework with keywords for string operations, path normalization, and data pretty-printing.
+         </p>
+         <a href="html/libdoc/Collection.html" target="_blank" class="btn btn-primary"><i class="fas fa-book"></i> View Libdoc</a>
+      </div>
+      <div class="libdoc-card">
+         <h4><i class="fas fa-exchange-alt"></i> RobotFramework Qconnection Base</h4>
+         <p>Handles continuous trace log reception and bidirectional data exchange over connections like TCP, SSH, or
+            Serial.</p>
+         <a href="html/libdoc/connection_manager.html" target="_blank" class="btn btn-primary"><i class="fas fa-book"></i> View Libdoc</a>
+      </div>
+      <div class="libdoc-card">
+         <h4><i class="fas fa-bus"></i> RobotFramework Dbus</h4>
+         <p>Supports automated testing of DBus services with keywords for testing methods and signals synchronously and asynchronously.</p>
+         <a href="html/libdoc/dbus_manager.html" target="_blank" class="btn btn-primary"><i class="fas fa-book"></i> View Libdoc</a>
+      </div>
+      <div class="libdoc-card">
+         <h4><i class="fas fa-chart-line"></i> RobotFramework Prometheus</h4>
+         <p>Enables Robot Framework to interact with the Prometheus monitoring system, allowing test data to be monitored and analyzed.</p>
+         <a href="html/libdoc/prometheus_interface.html" target="_blank" class="btn btn-primary"><i class="fas fa-book"></i> View Libdoc</a>
+      </div>
+   </div>
+</section>

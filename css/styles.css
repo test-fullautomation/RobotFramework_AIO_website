@@ -241,4 +241,67 @@ body::before {
   background-color: #f8fcff; /* 10% hellere Farbe */
 }
 
+.libdoc-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
 
+.libdoc-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.libdoc-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.libdoc-card h4 {
+  margin-top: 0;
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+.libdoc-card p {
+  flex-grow: 1; /* Ensures the paragraph takes up available space */
+  margin-bottom: 15px; /* Adds spacing between the paragraph and the button */
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #fff;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #0056b3, #003f7f);
+}
+
+@keyframes fadeIn {
+  from {
+     opacity: 0;
+     transform: translateY(20px);
+  }
+  to {
+     opacity: 1;
+     transform: translateY(0);
+  }
+}
