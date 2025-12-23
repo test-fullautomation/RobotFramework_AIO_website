@@ -242,10 +242,12 @@ body::before {
 }
 
 .libdoc-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 24px;
+  justify-items: stretch;
+  align-items: stretch;
 }
 
 .libdoc-card {
