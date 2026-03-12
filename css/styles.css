@@ -4,7 +4,26 @@
 }
 
 .nav-header{
-  background-color: rgb(40 10 100);
+  background-color: transparent;
+  background-image: url('../images/wald_banner.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.nav-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(10, 10, 10, 0.40);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.nav-header > * {
+  position: relative;
+  z-index: 1;
 }
 
 #main-content > div {
@@ -30,10 +49,19 @@ input {
   padding-bottom: 0;
 }
 
+.nav-header .navbar-brand,
+.nav-header .navbar-brand:hover {
+  color: #ffffff;
+}
+
 .nav-item .nav-link {
   position: relative;
-  color: #333; /* Ausgangsfarbe */
+  color: #f0f0f0; /* Ausgangsfarbe */
   transition: color 0.2s ease-in-out; /* Sanfte Farbänderung */
+}
+
+.nav-item .nav-link:hover {
+  color: #ffffff;
 }
 
 .nav-item .nav-link::after {
@@ -43,7 +71,7 @@ input {
   bottom: 0;
   width: 0;
   height: 4px;
-  background-color: rgb(77, 112, 16); /* Farbe des Unterstrichs */
+  background-color: rgb(200, 200, 200); /* Farbe des Unterstrichs */
   transition: width 0.3s ease-in-out, left 0.3s ease-in-out; /* Animation */
 }
 
