@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta charset="utf-8" />
+<meta name="generator" content="Docutils 0.22.4: https://docutils.sourceforge.io/" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ssh_client.py</title>
+<link rel="stylesheet" href="./styles/common.css" type="text/css" />
+<link rel="stylesheet" href="./styles/pythoncode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/pcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/robotcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/rcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/jsoncode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/jcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/consolelog.css" type="text/css" />
+<link rel="stylesheet" href="./styles/filesystem.css" type="text/css" />
+<link rel="stylesheet" href="./styles/anycontent.css" type="text/css" />
+<link rel="stylesheet" href="./styles/highlight.css" type="text/css" />
+<link rel="stylesheet" href="./styles/simpletable.css" type="text/css" />
+</head>
+<body>
+<main>
+
+<h1>ssh_client.py</h1>
+
+
+<section id="qconnectbase-tcp-ssh-ssh-client-authenticationtype">
+<h2>Class: AuthenticationType</h2>
+</section>
+<section id="qconnectbase-tcp-ssh-ssh-client-sshconfig">
+<h2>Class: SSHConfig</h2>
+<p>Class to store the configuration for SSH connection.</p>
+</section>
+<section id="qconnectbase-tcp-ssh-ssh-client-sshclient">
+<h2>Class: SSHClient</h2>
+<p>SSH client connection class.</p>
+<section id="qconnectbase-tcp-ssh-ssh-client-sshclient-connect">
+<h3>Method: connect</h3>
+<p>Implementation for creating a SSH connection.</p>
+<p><strong>Returns:</strong></p>
+<p>(<em>no returns</em>)</p>
+</section>
+<section id="qconnectbase-tcp-ssh-ssh-client-sshclient-transfer-file">
+<h3>Method: transfer_file</h3>
+<p>DEPRECATED!! Use keyword transfer_item instead.
+Transfer file from local to remote and vice versa.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">src</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>Source file path.</p>
+</li>
+<li><p><span class="docutils literal">dest</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>Destination file path.</p>
+</li>
+<li><p><span class="docutils literal">transfer_type</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>Transfer file type.</p>
+<blockquote>
+<p>'get' - Copy a remote file from the SFTP server to the local host</p>
+<p>'put' - Copy a local file to the SFTP server</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>(<em>no returns</em>)</p>
+</section>
+<section id="qconnectbase-tcp-ssh-ssh-client-sshclient-transfer-item">
+<h3>Method: transfer_item</h3>
+<p>Transfer item from local to remote and vice versa.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">src</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>Source item path.</p>
+</li>
+<li><p><span class="docutils literal">dest</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>Destination item path.</p>
+</li>
+<li><p><span class="docutils literal">transfer_type</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>Transfer item type.</p>
+<blockquote>
+<p>'get' - Copy a remote item from the SFTP server to the local host</p>
+<p>'put' - Copy a local item to the SFTP server</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>(<em>no returns</em>)</p>
+</section>
+<section id="qconnectbase-tcp-ssh-ssh-client-sshclient-close">
+<h3>Method: close</h3>
+<p>Close SSH connection.</p>
+<p><strong>Returns:</strong></p>
+<p>(<em>no returns</em>)</p>
+</section>
+<section id="qconnectbase-tcp-ssh-ssh-client-sshclient-quit">
+<h3>Method: quit</h3>
+<p>Quit and stop receiver thread.</p>
+<p><strong>Returns:</strong></p>
+<p>(<em>no returns</em>)</p>
+</section>
+</section>
+</main>
+</body>
+</html>

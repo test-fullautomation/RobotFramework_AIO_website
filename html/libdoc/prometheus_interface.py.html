@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta charset="utf-8" />
+<meta name="generator" content="Docutils 0.22.4: https://docutils.sourceforge.io/" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>prometheus_interface.py</title>
+<link rel="stylesheet" href="./styles/common.css" type="text/css" />
+<link rel="stylesheet" href="./styles/pythoncode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/pcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/robotcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/rcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/jsoncode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/jcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/consolelog.css" type="text/css" />
+<link rel="stylesheet" href="./styles/filesystem.css" type="text/css" />
+<link rel="stylesheet" href="./styles/anycontent.css" type="text/css" />
+<link rel="stylesheet" href="./styles/highlight.css" type="text/css" />
+<link rel="stylesheet" href="./styles/simpletable.css" type="text/css" />
+</head>
+<body>
+<main id="prometheusinterface-prometheus-interface-prometheus-interface">
+<h1 class="title">Class: prometheus_interface</h1>
+
+<p>The class 'prometheus_interface' provides to communicate with the monitoring system Prometheus.
+For this purpose the 'Prometheus Python client library' is used.</p>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-convert-to-int-or-float">
+<h2>Method: convert_to_int_or_float</h2>
+<p>Little helper to convert a string value to an integer or a float</p>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-get-version">
+<h2>Keyword: get_version</h2>
+<p>Returns the version of this interface library</p>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-who-am-i">
+<h2>Keyword: who_am_i</h2>
+<p>Returns the full name of this interface library</p>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-where-am-i">
+<h2>Keyword: where_am_i</h2>
+<p>Returns path to this interface library</p>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-get-port-number">
+<h2>Keyword: get_port_number</h2>
+<p>Returns the port number assigned to this instance of the library</p>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-add-info">
+<h2>Keyword: add_info</h2>
+<p>This keyword adds a new info. The content of an existing info can be defined with <span class="docutils literal">set_info</span>.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">name</span></p>
+<p>The name of the new info</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">description</span></p>
+<p>The description of the new info</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">labels</span></p>
+<p>A semicolon separated list of label names assigned to the new info</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str  / <em>Default</em>: None /</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">success</span></p>
+<p>/ <em>Type</em>: bool /</p>
+<p>Indicates if the computation of the keyword was successful or not</p>
+</li>
+<li><p><span class="docutils literal">result</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The result of the computation of the keyword</p>
+</li>
+</ul>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-set-info">
+<h2>Keyword: set_info</h2>
+<p>This keyword defines the content of an info. The info has to be added with '<span class="docutils literal">add_info</span>' before.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">name</span></p>
+<p>The name of the info</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">info</span></p>
+<p>The info itself (every info is a key-value information).</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: dict /</p>
+</li>
+<li><p><span class="docutils literal">labels</span></p>
+<p>A semicolon separated list of labels assigned to the info. The order of labels must fit to the order of label names like defined in <span class="docutils literal">add_info</span>.</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str  / <em>Default</em>: None /</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">success</span></p>
+<p>/ <em>Type</em>: bool /</p>
+<p>Indicates if the computation of the keyword was successful or not</p>
+</li>
+<li><p><span class="docutils literal">result</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The result of the computation of the keyword</p>
+</li>
+</ul>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-add-counter">
+<h2>Keyword: add_counter</h2>
+<p>This keyword adds a new counter. The values of existing counters can be changed with <span class="docutils literal">inc_counter</span>.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">name</span></p>
+<p>The name of the new counter</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">description</span></p>
+<p>The description of the new counter</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">labels</span></p>
+<p>A semicolon separated list of label names assigned to the new counter</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str  / <em>Default</em>: None /</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">success</span></p>
+<p>/ <em>Type</em>: bool /</p>
+<p>Indicates if the computation of the keyword was successful or not</p>
+</li>
+<li><p><span class="docutils literal">result</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The result of the computation of the keyword</p>
+</li>
+</ul>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-inc-counter">
+<h2>Keyword: inc_counter</h2>
+<p>This keyword increments a counter. The counter has to be added with '<span class="docutils literal">add_counter</span>' before.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">name</span></p>
+<p>The name of the counter</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">value</span></p>
+<p>The value of increment. If not given, the value of the counter is incremented by value 1.</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: int  / <em>Default</em>: None /</p>
+</li>
+<li><p><span class="docutils literal">labels</span></p>
+<p>A semicolon separated list of labels assigned to the counter. The order of labels must fit to the order of label names like defined in <span class="docutils literal">add_counter</span>.</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str  / <em>Default</em>: None /</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">success</span></p>
+<p>/ <em>Type</em>: bool /</p>
+<p>Indicates if the computation of the keyword was successful or not</p>
+</li>
+<li><p><span class="docutils literal">result</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The result of the computation of the keyword</p>
+</li>
+</ul>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-add-gauge">
+<h2>Keyword: add_gauge</h2>
+<p>This keyword adds a new gauge. The values of existing gauges can be changed with <span class="docutils literal">set_gauge</span>, <span class="docutils literal">inc_gauge</span> and <span class="docutils literal">dec_gauge</span>.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">name</span></p>
+<p>The name of the new gauge</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">description</span></p>
+<p>The description of the new gauge</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">labels</span></p>
+<p>A semicolon separated list of label names assigned to the new gauge</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str  / <em>Default</em>: None /</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">success</span></p>
+<p>/ <em>Type</em>: bool /</p>
+<p>Indicates if the computation of the keyword was successful or not</p>
+</li>
+<li><p><span class="docutils literal">result</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The result of the computation of the keyword</p>
+</li>
+</ul>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-set-gauge">
+<h2>Keyword: set_gauge</h2>
+<p>This keyword sets the value for a gauge. The gauge has to be added with '<span class="docutils literal">add_gauge</span>' before.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">name</span></p>
+<p>The name of the gauge</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">value</span></p>
+<p>The new value of the gauge.</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: int  / <em>Default</em>: None /</p>
+</li>
+<li><p><span class="docutils literal">labels</span></p>
+<p>A semicolon separated list of labels assigned to the gauge. The order of labels must fit to the order of label names like defined in <span class="docutils literal">add_gauge</span>.</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str  / <em>Default</em>: None /</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">success</span></p>
+<p>/ <em>Type</em>: bool /</p>
+<p>Indicates if the computation of the keyword was successful or not</p>
+</li>
+<li><p><span class="docutils literal">result</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The result of the computation of the keyword</p>
+</li>
+</ul>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-inc-gauge">
+<h2>Keyword: inc_gauge</h2>
+<p>This keyword increments a gauge. The gauge has to be added with '<span class="docutils literal">add_gauge</span>' before.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">name</span></p>
+<p>The name of the gauge</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">value</span></p>
+<p>The value of increment. If not given, the value of the gauge is incremented by value 1.</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: int  / <em>Default</em>: None /</p>
+</li>
+<li><p><span class="docutils literal">labels</span></p>
+<p>A semicolon separated list of labels assigned to the gauge. The order of labels must fit to the order of label names like defined in <span class="docutils literal">add_gauge</span>.</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str  / <em>Default</em>: None /</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">success</span></p>
+<p>/ <em>Type</em>: bool /</p>
+<p>Indicates if the computation of the keyword was successful or not</p>
+</li>
+<li><p><span class="docutils literal">result</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The result of the computation of the keyword</p>
+</li>
+</ul>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-dec-gauge">
+<h2>Keyword: dec_gauge</h2>
+<p>This keyword decrements a gauge. The gauge has to be added with '<span class="docutils literal">add_gauge</span>' before.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">name</span></p>
+<p>The name of the gauge</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">value</span></p>
+<p>The value of decrement. If not given, the value of the gauge is decremented by value 1.</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: int  / <em>Default</em>: None /</p>
+</li>
+<li><p><span class="docutils literal">labels</span></p>
+<p>A semicolon separated list of labels assigned to the gauge. The order of labels must fit to the order of label names like defined in <span class="docutils literal">add_gauge</span>.</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str  / <em>Default</em>: None /</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">success</span></p>
+<p>/ <em>Type</em>: bool /</p>
+<p>Indicates if the computation of the keyword was successful or not</p>
+</li>
+<li><p><span class="docutils literal">result</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The result of the computation of the keyword</p>
+</li>
+</ul>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-add-summary">
+<h2>Keyword: add_summary</h2>
+<p>This keyword adds a new summary. The values of existing summaries can be set with <span class="docutils literal">observe_summary`</span>.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">name</span></p>
+<p>The name of the new summary</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">description</span></p>
+<p>The description of the new summary</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">labels</span></p>
+<p>A semicolon separated list of label names assigned to the new summary</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str  / <em>Default</em>: None /</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">success</span></p>
+<p>/ <em>Type</em>: bool /</p>
+<p>Indicates if the computation of the keyword was successful or not</p>
+</li>
+<li><p><span class="docutils literal">result</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The result of the computation of the keyword</p>
+</li>
+</ul>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-observe-summary">
+<h2>Keyword: observe_summary</h2>
+<p>This keyword observes a summary. The summary has to be added with '<span class="docutils literal">add_summary</span>' before.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">name</span></p>
+<p>The name of the summary</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">value</span></p>
+<p>The value assigned to the summary.</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: int or float /</p>
+</li>
+<li><p><span class="docutils literal">labels</span></p>
+<p>A semicolon separated list of labels assigned to the summary. The order of labels must fit to the order of label names like defined in <span class="docutils literal">add_summary</span>.</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str  / <em>Default</em>: None /</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">success</span></p>
+<p>/ <em>Type</em>: bool /</p>
+<p>Indicates if the computation of the keyword was successful or not</p>
+</li>
+<li><p><span class="docutils literal">result</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The result of the computation of the keyword</p>
+</li>
+</ul>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-add-histogram">
+<h2>Keyword: add_histogram</h2>
+<p>This keyword adds a new histogram. The values of existing histograms can be set with <span class="docutils literal">observe_histogram`</span>.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">name</span></p>
+<p>The name of the new histogram</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">description</span></p>
+<p>The description of the new histogram</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">labels</span></p>
+<p>A semicolon separated list of label names assigned to the new histogram</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str  / <em>Default</em>: None /</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">success</span></p>
+<p>/ <em>Type</em>: bool /</p>
+<p>Indicates if the computation of the keyword was successful or not</p>
+</li>
+<li><p><span class="docutils literal">result</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The result of the computation of the keyword</p>
+</li>
+</ul>
+</section>
+<section id="prometheusinterface-prometheus-interface-prometheus-interface-observe-histogram">
+<h2>Keyword: observe_histogram</h2>
+<p>This keyword observes a histogram. The histogram has to be added with '<span class="docutils literal">add_histogram</span>' before.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">name</span></p>
+<p>The name of the histogram</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+</li>
+<li><p><span class="docutils literal">value</span></p>
+<p>The value assigned to the histogram.</p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: int or float /</p>
+</li>
+<li><p><span class="docutils literal">labels</span></p>
+<p>A semicolon separated list of labels assigned to the histogram. The order of labels must fit to the order of label names like defined in <span class="docutils literal">add_histogram</span>.</p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str  / <em>Default</em>: None /</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">success</span></p>
+<p>/ <em>Type</em>: bool /</p>
+<p>Indicates if the computation of the keyword was successful or not</p>
+</li>
+<li><p><span class="docutils literal">result</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The result of the computation of the keyword</p>
+</li>
+</ul>
+</section>
+</main>
+</body>
+</html>
