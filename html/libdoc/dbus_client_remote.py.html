@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta charset="utf-8" />
+<meta name="generator" content="Docutils 0.22.4: https://docutils.sourceforge.io/" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>dbus_client_remote.py</title>
+<link rel="stylesheet" href="./styles/common.css" type="text/css" />
+<link rel="stylesheet" href="./styles/pythoncode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/pcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/robotcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/rcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/jsoncode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/jcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/consolelog.css" type="text/css" />
+<link rel="stylesheet" href="./styles/filesystem.css" type="text/css" />
+<link rel="stylesheet" href="./styles/anycontent.css" type="text/css" />
+<link rel="stylesheet" href="./styles/highlight.css" type="text/css" />
+<link rel="stylesheet" href="./styles/simpletable.css" type="text/css" />
+</head>
+<body>
+<main id="robotframework-dbus-dbus-client-remote-dbusclientremote">
+<h1 class="title">Class: DBusClientRemote</h1>
+
+<p>A client class for interacting with a specific DBus service on a remote machine.</p>
+<section id="robotframework-dbus-dbus-client-remote-dbusclientremote-connect">
+<h2>Method: connect</h2>
+<p>Create a proxy object to DBus object.</p>
+<p><strong>Returns:</strong></p>
+<p>(<em>no returns</em>)</p>
+</section>
+<section id="robotframework-dbus-dbus-client-remote-dbusclientremote-disconnect">
+<h2>Method: disconnect</h2>
+<p>Disconnect the DBus proxy from the remote object.</p>
+<p><strong>Returns:</strong></p>
+<p>(<em>no returns</em>)</p>
+</section>
+<section id="robotframework-dbus-dbus-client-remote-dbusclientremote-quit">
+<h2>Method: quit</h2>
+<p>Quit the DBus client.</p>
+<p><strong>Returns:</strong></p>
+<p>(<em>no returns</em>)</p>
+</section>
+<section id="robotframework-dbus-dbus-client-remote-dbusclientremote-do-signal-check">
+<h2>Method: do_signal_check</h2>
+<p>Checking if the signal was emited.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">signal</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>The name of the DBus signal to check.</p>
+</li>
+<li><p><span class="docutils literal">call_back_func</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: callable /</p>
+<p>The function to be callback when receiving the signal.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>(<em>no returns</em>)</p>
+</section>
+<section id="robotframework-dbus-dbus-client-remote-dbusclientremote-set-signal-received-handler">
+<h2>Method: set_signal_received_handler</h2>
+<p>Set a signal received handler for a specific signal.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">signal</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>The name of the DBus signal to handle.</p>
+</li>
+<li><p><span class="docutils literal">handler</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>The keyword to handle the received signal.
+The handler should accept the necessary parameters based on the signal being handled.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>(<em>no returns</em>)</p>
+</section>
+<section id="robotframework-dbus-dbus-client-remote-dbusclientremote-unset-signal-received-handler">
+<h2>Method: unset_signal_received_handler</h2>
+<p>Unset a signal received handler for a specific signal.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">signal</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>The name of the DBus signal to handle.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>(<em>no returns</em>)</p>
+</section>
+<section id="robotframework-dbus-dbus-client-remote-dbusclientremote-register-monitored-signal">
+<h2>Method: register_monitored_signal</h2>
+<p>Register a DBus signal or signals to be monitored for a specific connection.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">signal</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: '' /</p>
+<p>The name of the DBus signal(s) to register. It can be a single signal name as a string,
+or multiple signal names joined by ','. For example: &quot;signal1,signal2,signal3&quot;.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>(<em>no returns</em>)</p>
+</section>
+<section id="robotframework-dbus-dbus-client-remote-dbusclientremote-wait-for-signal">
+<h2>Method: wait_for_signal</h2>
+<p>Wait for a specific DBus signal to be received within a specified timeout period.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">wait_signal</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: '' /</p>
+<p>The name of the DBus signal to wait for.</p>
+</li>
+<li><p><span class="docutils literal">timeout</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: int / <em>Default</em>: 0 /</p>
+<p>The maximum time (in seconds) to wait for the signal.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">payloads</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The signal payloads.</p>
+</li>
+</ul>
+</section>
+<section id="robotframework-dbus-dbus-client-remote-dbusclientremote-call-dbus-method">
+<h2>Method: call_dbus_method</h2>
+<p>Call a DBus method with the specified method name and input arguments.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">method_name</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: '' /</p>
+<p>The name of the DBus method to be called.</p>
+</li>
+<li><p><span class="docutils literal">args</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: tuple / <em>Default</em>: None /</p>
+<p>Input arguments to be passed to the method.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">ret_obj</span></p>
+<p>/ <em>Type</em>: Any /</p>
+<p>Connection object.</p>
+</li>
+</ul>
+</section>
+</main>
+</body>
+</html>

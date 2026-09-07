@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta charset="utf-8" />
+<meta name="generator" content="Docutils 0.22.4: https://docutils.sourceforge.io/" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Collection.py</title>
+<link rel="stylesheet" href="./styles/common.css" type="text/css" />
+<link rel="stylesheet" href="./styles/pythoncode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/pcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/robotcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/rcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/jsoncode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/jcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/consolelog.css" type="text/css" />
+<link rel="stylesheet" href="./styles/filesystem.css" type="text/css" />
+<link rel="stylesheet" href="./styles/anycontent.css" type="text/css" />
+<link rel="stylesheet" href="./styles/highlight.css" type="text/css" />
+<link rel="stylesheet" href="./styles/simpletable.css" type="text/css" />
+</head>
+<body>
+<main>
+
+<h1>Collection.py</h1>
+
+
+<p>The Collection module is the interface between the PythonExtensionsCollection and the Robot Framework.</p>
+<p>This library containing the keyword definitions, can be imported in the following way:</p>
+<pre class="code literal-block"><code>Library    RobotframeworkExtensions.Collection    AS    rf.extensions</code></pre>
+<section id="robotframeworkextensions-collection-collection">
+<h2>Class: Collection</h2>
+<p>Module main class</p>
+<section id="robotframeworkextensions-collection-collection-pretty-print">
+<h3>Keyword: pretty_print</h3>
+<p>The <span class="docutils literal">pretty_print</span> keyword logs the content of parameters of any Python data type (input: <span class="docutils literal">oData</span>).</p>
+<p>Simple data types are logged directly. Composite data types are resolved before.</p>
+<p>The output contains for every parameter:</p>
+<ul class="simple">
+<li><p>the type</p></li>
+<li><p>the total number of elements inside (e.g. the number of keys inside a dictionary)</p></li>
+<li><p>the counter number of the current element</p></li>
+<li><p>the value</p></li>
+</ul>
+<p>The trace level for output is <span class="docutils literal">INFO</span>.</p>
+<p>The output is also returned as list of strings.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">oData</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: any Python type /</p>
+<p>Data to be pretty printed</p>
+</li>
+<li><p><span class="docutils literal">sPrefix</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: None /</p>
+<p>If not <span class="docutils literal">None</span>, this prefix string is added to every output line.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">listOutLines</span> (<em>list</em>)</p>
+<p>/ <em>Type</em>: list /</p>
+<p>List of strings containing the resolved data structure of <span class="docutils literal">oData</span> (same content as printed to console).</p>
+</li>
+</ul>
+</section>
+<section id="robotframeworkextensions-collection-collection-normalize-path">
+<h3>Keyword: normalize_path</h3>
+<p>The <span class="docutils literal">normalize_path</span> keyword normalizes local paths, paths to local network resources and internet addresses</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">sPath</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>The path to be normalized</p>
+</li>
+<li><p><span class="docutils literal">bWin</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: bool / <em>Default</em>: False /</p>
+<p>If <span class="docutils literal">True</span> then the returned path contains masked backslashes as separator, otherwise slashes</p>
+</li>
+<li><p><span class="docutils literal">sReferencePathAbs</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: None /</p>
+<p>In case of <span class="docutils literal">sPath</span> is relative and <span class="docutils literal">sReferencePathAbs</span> (expected to be absolute) is given, then
+the returned absolute path is a join of both input paths</p>
+</li>
+<li><p><span class="docutils literal">bConsiderBlanks</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: bool / <em>Default</em>: False /</p>
+<p>If <span class="docutils literal">True</span> then the returned path is encapsulated in quotes - in case of the path contains blanks</p>
+</li>
+<li><p><span class="docutils literal">bExpandEnvVars</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: bool / <em>Default</em>: True /</p>
+<p>If <span class="docutils literal">True</span> then in the returned path environment variables are resolved, otherwise not.</p>
+</li>
+<li><p><span class="docutils literal">bMask</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: bool / <em>Default</em>: True (requires <span class="docutils literal">bWin=True</span>) /</p>
+<p>If <span class="docutils literal">bWin</span> is <span class="docutils literal">True</span> and <span class="docutils literal">bMask</span> is <span class="docutils literal">True</span> then the returned path contains masked backslashes as separator.</p>
+<p>If <span class="docutils literal">bWin</span> is <span class="docutils literal">True</span> and <span class="docutils literal">bMask</span> is <span class="docutils literal">False</span> then the returned path contains single backslashes only - this might be
+required for applications, that are not able to handle masked backslashes.</p>
+<p>In case of <span class="docutils literal">bWin</span> is <span class="docutils literal">False</span> <span class="docutils literal">bMask</span> has no effect.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><p><span class="docutils literal">sPath</span></p>
+<p>/ <em>Type</em>: str /</p>
+<p>The normalized path (is <span class="docutils literal">None</span> in case of <span class="docutils literal">sPath</span> is <span class="docutils literal">None</span>)</p>
+</li>
+</ul>
+</section>
+<section id="robotframeworkextensions-collection-collection-get-rf-parameters">
+<h3>Method: get_rf_parameters</h3>
+<p>the static method <span class="docutils literal">get_rf_parameters</span> generates a dump of all Robot Framework parameters in the current scope (including the global parameters).</p>
+<p>The output can be filtered (to limit the dumped parameters to the desired ones).</p>
+<p>This method returns a dictionary containing all dumped parameters.</p>
+<p>In this module the method <span class="docutils literal">get_rf_parameters</span> is used by the keyword <span class="docutils literal">get_parameters</span>. <span class="docutils literal">get_rf_parameters</span> is made a separate static method
+to enable also other Python modules to use this method for their own needs.</p>
+<p>All input filter parameters are explained in detail here: <a class="reference external" href="https://github.com/test-fullautomation/python-extensions-collection/blob/develop/PythonExtensionsCollection/PythonExtensionsCollection.pdf">PythonExtensionsCollection.pdf</a>
+(section 'String operations with CString', method 'StringFilter'). Notice: In the context of this method, the filter parameter of the <strong>PythonExtensionsCollection</strong> have been renamed to a decapitalized format without type prefix.</p>
+<p>The actual names of all input filter parameters are: <span class="docutils literal">casesensitive</span>, <span class="docutils literal">startswith</span>, <span class="docutils literal">endswith</span>, <span class="docutils literal">startsnotwith</span>, <span class="docutils literal">endsnotwith</span>, <span class="docutils literal">contains</span>, <span class="docutils literal">containsnot</span>, <span class="docutils literal">inclregex</span>, <span class="docutils literal">exclregex</span></p>
+<p>Further input parameters are:</p>
+<ul>
+<li><p><span class="docutils literal">headline</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: None /</p>
+<p>An additional headline logged before the parameter dump.</p>
+</li>
+<li><p><span class="docutils literal">level</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: &quot;INFO&quot; /</p>
+<p>The log level of output.</p>
+</li>
+<li><p><span class="docutils literal">console</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: bool / <em>Default</em>: False /</p>
+<p>Flag to control the console output.</p>
+</li>
+</ul>
+</section>
+<section id="robotframeworkextensions-collection-collection-get-parameters">
+<h3>Keyword: get_parameters</h3>
+<p>This keyword generates a dump of all Robot Framework parameters in the current scope (including the global parameters).</p>
+<p>The output can be filtered (to limit the dumped parameters to the desired ones).</p>
+<p>This keyword returns a dictionary containing all dumped parameters.</p>
+<p>All input filter parameters are explained in detail here: <a class="reference external" href="https://github.com/test-fullautomation/python-extensions-collection/blob/develop/PythonExtensionsCollection/PythonExtensionsCollection.pdf">PythonExtensionsCollection.pdf</a>
+(section 'String operations with CString', method 'StringFilter'). Notice: In the context of this keyword, the filter parameter of the <strong>PythonExtensionsCollection</strong> have been renamed to a decapitalized format without type prefix.</p>
+<p>The actual names of all input filter parameters are: <span class="docutils literal">casesensitive</span>, <span class="docutils literal">startswith</span>, <span class="docutils literal">endswith</span>, <span class="docutils literal">startsnotwith</span>, <span class="docutils literal">endsnotwith</span>, <span class="docutils literal">contains</span>, <span class="docutils literal">containsnot</span>, <span class="docutils literal">inclregex</span>, <span class="docutils literal">exclregex</span></p>
+<p>Further input parameters are:</p>
+<ul>
+<li><p><span class="docutils literal">headline</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: None /</p>
+<p>An additional headline logged before the parameter dump.</p>
+</li>
+<li><p><span class="docutils literal">level</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: &quot;INFO&quot; /</p>
+<p>The log level of output.</p>
+</li>
+<li><p><span class="docutils literal">console</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: bool / <em>Default</em>: False /</p>
+<p>Flag to control the console output.</p>
+</li>
+</ul>
+<p>The implementation is based on the corresponding static method <span class="docutils literal">get_rf_parameters</span> of this class.</p>
+</section>
+<section id="robotframeworkextensions-collection-collection-log-rf-parameter">
+<h3>Method: log_rf_parameter</h3>
+<p>The static method <span class="docutils literal">log_rf_parameter</span> logs the value of a parameter in table format. The intention behind this is a better readability of log files.</p>
+<ul class="simple">
+<li><p>Simple data types like strings or integers are logged in a single table line.</p></li>
+<li><p>Lists are logged with a separate line for every list element.</p></li>
+<li><p>Dictionaries are logged with a separate line for every key.</p></li>
+<li><p>Lists and dictionaries are resolved at top level only, not recursively. Every parameter value is logged in string format.</p></li>
+<li><p>Every table line can be tagged with a prefix string (optional).</p></li>
+<li><p>Every table can get a headline (optional).</p></li>
+</ul>
+<p>It is also possible to control the log level (default is <span class="docutils literal">&quot;INFO&quot;</span>) and if the table shall additionally be written to console or not (default is <span class="docutils literal">True</span>).</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">parameter_value</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: all supported /</p>
+<p>The value to be logged</p>
+</li>
+<li><p><span class="docutils literal">prefix</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: None /</p>
+<p>A prefix string added to the beginning of every line. This can be used to provide the name of the actual parameter whose value is to be logged (unfortunately this must be done manually because Python does not support this).</p>
+</li>
+<li><p><span class="docutils literal">headline</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: None /</p>
+<p>An additional headline logged before the table.</p>
+</li>
+<li><p><span class="docutils literal">level</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: &quot;INFO&quot; /</p>
+<p>The log level of output.</p>
+</li>
+<li><p><span class="docutils literal">console</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: bool / <em>Default</em>: True /</p>
+<p>Flag to control the console output.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>(no return values)</p>
+</blockquote>
+</section>
+<section id="robotframeworkextensions-collection-collection-log-parameter">
+<h3>Keyword: log_parameter</h3>
+<p>The <span class="docutils literal">log_parameter</span> keyword logs the value of a parameter in table format. The intention behind this is a better readability of log files.</p>
+<ul class="simple">
+<li><p>Simple data types like strings or integers are logged in a single table line.</p></li>
+<li><p>Lists are logged with a separate line for every list element.</p></li>
+<li><p>Dictionaries are logged with a separate line for every key.</p></li>
+<li><p>Lists and dictionaries are resolved at top level only, not recursively. Every parameter value is logged in string format.</p></li>
+<li><p>Every table line can be tagged with a prefix string (optional).</p></li>
+<li><p>Every table can get a headline (optional).</p></li>
+</ul>
+<p>It is also possible to control the log level (default is <span class="docutils literal">&quot;INFO&quot;</span>) and if the table shall additionally be written to console or not (default is <span class="docutils literal">True</span>).</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">parameter_value</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: all supported /</p>
+<p>The value to be logged</p>
+</li>
+<li><p><span class="docutils literal">prefix</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: None /</p>
+<p>A prefix string added to the beginning of every line. This can be used to provide the name of the actual parameter whose value is to be logged (unfortunately this must be done manually because Python does not support this).</p>
+</li>
+<li><p><span class="docutils literal">headline</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: None /</p>
+<p>An additional headline logged before the table.</p>
+</li>
+<li><p><span class="docutils literal">level</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: &quot;INFO&quot; /</p>
+<p>The log level of output.</p>
+</li>
+<li><p><span class="docutils literal">console</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: bool / <em>Default</em>: True /</p>
+<p>Flag to control the console output.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>(no return values)</p>
+</blockquote>
+<p>The implementation is based on the corresponding static method <span class="docutils literal">log_rf_parameter</span> of this class.</p>
+</section>
+<section id="robotframeworkextensions-collection-collection-log-rf-metadata">
+<h3>Method: log_rf_metadata</h3>
+<p>The static method <span class="docutils literal">log_rf_metadata</span> logs the value of Robot Framework metadata in table format. The intention behind this is a better readability of log files.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">level</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: &quot;INFO&quot; /</p>
+<p>The log level of output.</p>
+</li>
+<li><p><span class="docutils literal">console</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: bool / <em>Default</em>: True /</p>
+<p>Flag to control the console output.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>(no return values)</p>
+</blockquote>
+</section>
+<section id="robotframeworkextensions-collection-collection-log-metadata">
+<h3>Keyword: log_metadata</h3>
+<p>The <span class="docutils literal">log_metadata</span> keyword logs the value of a metadata parameter in table format. The intention behind this is a better readability of log files.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">level</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: str / <em>Default</em>: &quot;INFO&quot; /</p>
+<p>The log level of output.</p>
+</li>
+<li><p><span class="docutils literal">console</span></p>
+<p>/ <em>Condition</em>: optional / <em>Type</em>: bool / <em>Default</em>: True /</p>
+<p>Flag to control the console output.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>(no return values)</p>
+</blockquote>
+<p>The implementation is based on the corresponding static method <span class="docutils literal">log_rf_metadata</span> of this class.</p>
+</section>
+</section>
+</main>
+</body>
+</html>

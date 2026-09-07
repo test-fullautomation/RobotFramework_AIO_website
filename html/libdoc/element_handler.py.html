@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta charset="utf-8" />
+<meta name="generator" content="Docutils 0.22.4: https://docutils.sourceforge.io/" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>element_handler.py</title>
+<link rel="stylesheet" href="./styles/common.css" type="text/css" />
+<link rel="stylesheet" href="./styles/pythoncode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/pcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/robotcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/rcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/jsoncode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/jcode.css" type="text/css" />
+<link rel="stylesheet" href="./styles/consolelog.css" type="text/css" />
+<link rel="stylesheet" href="./styles/filesystem.css" type="text/css" />
+<link rel="stylesheet" href="./styles/anycontent.css" type="text/css" />
+<link rel="stylesheet" href="./styles/highlight.css" type="text/css" />
+<link rel="stylesheet" href="./styles/simpletable.css" type="text/css" />
+</head>
+<body>
+<main id="qconnectwinapp-actionhandlers-element-handler-elementactionhandler">
+<h1 class="title">Class: ElementActionHandler</h1>
+
+<section id="qconnectwinapp-actionhandlers-element-handler-elementactionhandler-get-supported-level">
+<h2>Method: get_supported_level</h2>
+<p>Get the supported level of this handler for a specific element object.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">ele_obj</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: WebElement /</p>
+<p>Winapp GUI element object.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>/ <em>Type</em>: int /</p>
+<p>Supported level of this action handler for the element object.</p>
+</blockquote>
+</section>
+<section id="qconnectwinapp-actionhandlers-element-handler-elementactionhandler-get-attribute">
+<h2>Method: get_attribute</h2>
+<p>Get element object's property.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">attr</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>Property's name to be got value.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>/ <em>Type</em>: str /</p>
+<p>Property's value.</p>
+</blockquote>
+</section>
+<section id="qconnectwinapp-actionhandlers-element-handler-elementactionhandler-divert-action">
+<h2>Method: divert_action</h2>
+<p>Divert action string to the corresponding method, execute the method and return value.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><p><span class="docutils literal">action</span></p>
+<p>/ <em>Condition</em>: required / <em>Type</em>: str /</p>
+<p>Action string to be diverted.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<blockquote>
+<p>/ <em>Type</em>: str /</p>
+<p>Corresponding method's return.</p>
+</blockquote>
+</section>
+</main>
+</body>
+</html>
